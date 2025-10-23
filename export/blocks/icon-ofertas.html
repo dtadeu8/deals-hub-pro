@@ -1,0 +1,116 @@
+<!-- ====================================
+     ÍCONE ANIMADO - AS MELHORES OFERTAS
+     ====================================
+     
+     INSTRUÇÕES DE USO:
+     1. Copie TODO este código
+     2. No Google Sites, clique em "Inserir" → "Incorporar"
+     3. Cole este código
+     4. Ajuste o tamanho conforme necessário
+     
+     PERSONALIZAÇÃO:
+     - Cor do ícone: Altere o valor "stroke='#DC2626'" para outra cor
+     - Tamanho: Modifique width e height no CSS (--icon-size)
+     - Velocidade da rotação: Altere "4s" no animation
+     ==================================== -->
+
+<style>
+  .zap-icon-container {
+    --icon-size: 80px;
+    --icon-color: #DC2626;
+    --glow-color: rgba(220, 38, 38, 0.3);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+    margin: 0 auto;
+  }
+  
+  .zap-icon-wrapper {
+    position: relative;
+    width: var(--icon-size);
+    height: var(--icon-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .zap-icon-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--glow-color), transparent);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  
+  .zap-icon-svg {
+    position: relative;
+    width: calc(var(--icon-size) * 0.6);
+    height: calc(var(--icon-size) * 0.6);
+    animation: rotate 4s ease-in-out infinite;
+    filter: drop-shadow(0 0 10px var(--glow-color));
+  }
+  
+  @keyframes rotate {
+    0%, 100% {
+      transform: rotate(0deg) scale(1);
+    }
+    25% {
+      transform: rotate(-10deg) scale(1.1);
+    }
+    75% {
+      transform: rotate(10deg) scale(1.1);
+    }
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 0.5;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.2);
+    }
+  }
+  
+  /* Responsivo para telas menores */
+  @media (max-width: 768px) {
+    .zap-icon-container {
+      --icon-size: 60px;
+    }
+  }
+</style>
+
+<div class="zap-icon-container">
+  <div class="zap-icon-wrapper">
+    <div class="zap-icon-bg"></div>
+    <svg 
+      class="zap-icon-svg" 
+      fill="none" 
+      viewBox="0 0 24 24" 
+      stroke="currentColor" 
+      style="color: var(--icon-color);"
+    >
+      <path 
+        stroke-linecap="round" 
+        stroke-linejoin="round" 
+        stroke-width="2" 
+        d="M13 10V3L4 14h7v7l9-11h-7z"
+      />
+    </svg>
+  </div>
+</div>
+
+<!-- 
+  VARIAÇÕES DE COR SUGERIDAS:
+  
+  Vermelho (atual): #DC2626
+  Azul Elétrico: #2563EB
+  Verde: #10B981
+  Roxo: #9333EA
+  Laranja: #F97316
+  Rosa: #EC4899
+-->
