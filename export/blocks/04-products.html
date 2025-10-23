@@ -1,0 +1,337 @@
+<!-- ============================================ -->
+<!-- BLOCO 4: GRID DE PRODUTOS -->
+<!-- Cole este bloco após as categorias -->
+<!-- Modifique as informações dentro dos cards -->
+<!-- ============================================ -->
+
+<style>
+    .zap-products {
+        padding: 5rem 1.5rem;
+        background: white;
+    }
+
+    .zap-products-container {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .zap-products-header {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .zap-products-badge {
+        display: inline-block;
+        padding: 0.5rem 1.5rem;
+        background: linear-gradient(135deg, #2563EB, #DC2626);
+        color: white;
+        border-radius: 50px;
+        font-size: 0.875rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+    }
+
+    .zap-products-title {
+        font-size: 3rem;
+        font-weight: 900;
+        color: #1F2937;
+        margin-bottom: 1rem;
+    }
+
+    .zap-products-description {
+        font-size: 1.25rem;
+        color: #6B7280;
+    }
+
+    .zap-products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 2rem;
+    }
+
+    .zap-product-card {
+        background: white;
+        border-radius: 1.5rem;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        border: 1px solid #F3F4F6;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+    }
+
+    .zap-product-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 50px rgba(220, 38, 38, 0.15);
+        border-color: #DC2626;
+    }
+
+    .zap-product-badge {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: #DC2626;
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 50px;
+        font-size: 0.875rem;
+        font-weight: 700;
+        z-index: 10;
+        box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4);
+    }
+
+    .zap-product-image-wrapper {
+        aspect-ratio: 1;
+        overflow: hidden;
+        background: linear-gradient(135deg, #F3F4F6, #E5E7EB);
+        position: relative;
+    }
+
+    .zap-product-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .zap-product-card:hover .zap-product-image {
+        transform: scale(1.15);
+    }
+
+    .zap-product-content {
+        padding: 1.5rem;
+    }
+
+    .zap-product-category {
+        display: inline-block;
+        padding: 0.25rem 0.75rem;
+        background: #EFF6FF;
+        color: #2563EB;
+        border-radius: 50px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .zap-product-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #1F2937;
+        margin-bottom: 0.75rem;
+        min-height: 3rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        line-height: 1.5;
+    }
+
+    .zap-product-description {
+        color: #6B7280;
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .zap-product-prices {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .zap-product-price-old {
+        color: #9CA3AF;
+        text-decoration: line-through;
+        font-size: 1rem;
+    }
+
+    .zap-product-price-current {
+        color: #DC2626;
+        font-size: 2rem;
+        font-weight: 900;
+    }
+
+    .zap-product-price-installment {
+        color: #6B7280;
+        font-size: 0.85rem;
+        margin-top: 0.25rem;
+    }
+
+    .zap-product-button {
+        width: 100%;
+        padding: 1rem;
+        background: linear-gradient(135deg, #DC2626, #B91C1C);
+        color: white;
+        border: none;
+        border-radius: 0.75rem;
+        font-size: 1rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        text-decoration: none;
+    }
+
+    .zap-product-button:hover {
+        background: linear-gradient(135deg, #B91C1C, #991B1B);
+        transform: scale(1.02);
+        box-shadow: 0 8px 25px rgba(220, 38, 38, 0.4);
+    }
+
+    @media (max-width: 768px) {
+        .zap-products-title {
+            font-size: 2rem;
+        }
+
+        .zap-products-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<section class="zap-products" id="produtos">
+    <div class="zap-products-container">
+        <!-- Cabeçalho da Seção -->
+        <div class="zap-products-header">
+            <span class="zap-products-badge">Ofertas Especiais</span>
+            <h2 class="zap-products-title">Produtos em Destaque</h2>
+            <p class="zap-products-description">
+                Selecionados especialmente para você com os melhores descontos
+            </p>
+        </div>
+
+        <!-- Grid de Produtos -->
+        <div class="zap-products-grid">
+            
+            <!-- PRODUTO 1 - COPIE ESTE BLOCO PARA ADICIONAR MAIS PRODUTOS -->
+            <div class="zap-product-card">
+                <span class="zap-product-badge">-40% OFF</span>
+                <div class="zap-product-image-wrapper">
+                    <img 
+                        src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&h=500&fit=crop" 
+                        alt="Nome do Produto 1" 
+                        class="zap-product-image"
+                    >
+                </div>
+                <div class="zap-product-content">
+                    <span class="zap-product-category">Eletrônicos</span>
+                    <h3 class="zap-product-title">Fone de Ouvido Bluetooth Premium</h3>
+                    <p class="zap-product-description">
+                        Som de alta qualidade com cancelamento de ruído ativo
+                    </p>
+                    <div class="zap-product-prices">
+                        <span class="zap-product-price-old">R$ 249,90</span>
+                        <div>
+                            <div class="zap-product-price-current">R$ 149,90</div>
+                            <div class="zap-product-price-installment">ou 3x de R$ 49,97</div>
+                        </div>
+                    </div>
+                    <a href="#" class="zap-product-button" onclick="window.open('SEU_LINK_AQUI', '_blank'); return false;">
+                        <span>Ver Oferta</span>
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <!-- FIM PRODUTO 1 -->
+
+            <!-- PRODUTO 2 -->
+            <div class="zap-product-card">
+                <span class="zap-product-badge">-50% OFF</span>
+                <div class="zap-product-image-wrapper">
+                    <img 
+                        src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&h=500&fit=crop" 
+                        alt="Nome do Produto 2" 
+                        class="zap-product-image"
+                    >
+                </div>
+                <div class="zap-product-content">
+                    <span class="zap-product-category">Eletrônicos</span>
+                    <h3 class="zap-product-title">Smartwatch Esportivo Multifuncional</h3>
+                    <p class="zap-product-description">
+                        Monitore sua saúde e fitness com tecnologia avançada
+                    </p>
+                    <div class="zap-product-prices">
+                        <span class="zap-product-price-old">R$ 399,90</span>
+                        <div>
+                            <div class="zap-product-price-current">R$ 199,90</div>
+                            <div class="zap-product-price-installment">ou 4x de R$ 49,98</div>
+                        </div>
+                    </div>
+                    <a href="#" class="zap-product-button" onclick="window.open('SEU_LINK_AQUI', '_blank'); return false;">
+                        <span>Ver Oferta</span>
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <!-- FIM PRODUTO 2 -->
+
+            <!-- PRODUTO 3 -->
+            <div class="zap-product-card">
+                <span class="zap-product-badge">-35% OFF</span>
+                <div class="zap-product-image-wrapper">
+                    <img 
+                        src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=500&h=500&fit=crop" 
+                        alt="Nome do Produto 3" 
+                        class="zap-product-image"
+                    >
+                </div>
+                <div class="zap-product-content">
+                    <span class="zap-product-category">Moda</span>
+                    <h3 class="zap-product-title">Tênis Esportivo Performance Pro</h3>
+                    <p class="zap-product-description">
+                        Conforto e estilo para suas atividades diárias
+                    </p>
+                    <div class="zap-product-prices">
+                        <span class="zap-product-price-old">R$ 299,90</span>
+                        <div>
+                            <div class="zap-product-price-current">R$ 194,90</div>
+                            <div class="zap-product-price-installment">ou 5x de R$ 38,98</div>
+                        </div>
+                    </div>
+                    <a href="#" class="zap-product-button" onclick="window.open('SEU_LINK_AQUI', '_blank'); return false;">
+                        <span>Ver Oferta</span>
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <!-- FIM PRODUTO 3 -->
+
+        </div>
+    </div>
+</section>
+
+<!-- FIM DO BLOCO PRODUTOS -->
+
+<!-- 
+INSTRUÇÕES PARA ADICIONAR PRODUTOS:
+1. Copie todo o bloco entre <!-- PRODUTO X --> e <!-- FIM PRODUTO X -->
+2. Modifique:
+   - zap-product-badge: Desconto (ex: -40% OFF)
+   - src da imagem: URL da imagem do produto
+   - alt da imagem: Nome descritivo do produto
+   - zap-product-category: Categoria (Eletrônicos, Moda, Casa, etc)
+   - zap-product-title: Nome do produto
+   - zap-product-description: Breve descrição
+   - zap-product-price-old: Preço original
+   - zap-product-price-current: Preço com desconto
+   - zap-product-price-installment: Parcelamento
+   - href e onclick: Seu link de afiliado
+3. Cole o novo bloco dentro de .zap-products-grid
+-->

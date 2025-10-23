@@ -1,0 +1,137 @@
+<!-- ============================================ -->
+<!-- BLOCO 1: CABEÇALHO (HEADER) -->
+<!-- Cole este bloco no topo do Google Sites -->
+<!-- ============================================ -->
+
+<style>
+    /* Reset básico para o header */
+    .zap-header * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .zap-header {
+        background: linear-gradient(135deg, #DC2626 0%, #2563EB 100%);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 20px rgba(220, 38, 38, 0.15);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        padding: 1rem 0;
+        animation: slideDown 0.5s ease-out;
+    }
+
+    @keyframes slideDown {
+        from {
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    .zap-header-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .zap-logo-section {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .zap-logo-text {
+        font-size: 1.75rem;
+        font-weight: 800;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        letter-spacing: 1px;
+    }
+
+    .zap-tagline {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+
+    .zap-nav {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+    }
+
+    .zap-nav-link {
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+    .zap-nav-link:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-2px);
+    }
+
+    .zap-nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: white;
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+    }
+
+    .zap-nav-link:hover::after {
+        width: 80%;
+    }
+
+    @media (max-width: 768px) {
+        .zap-header-container {
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .zap-logo-section {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .zap-nav {
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+    }
+</style>
+
+<header class="zap-header">
+    <div class="zap-header-container">
+        <div class="zap-logo-section">
+            <div class="zap-logo-text">⚡ ZAP SHOP</div>
+            <div class="zap-tagline">Encontre seu produto ideal</div>
+        </div>
+        <nav class="zap-nav">
+            <a href="#inicio" class="zap-nav-link">Início</a>
+            <a href="#produtos" class="zap-nav-link">Produtos</a>
+            <a href="#categorias" class="zap-nav-link">Categorias</a>
+            <a href="#contato" class="zap-nav-link">Contato</a>
+        </nav>
+    </div>
+</header>
+
+<!-- FIM DO BLOCO CABEÇALHO -->

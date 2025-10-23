@@ -1,0 +1,263 @@
+<!-- ============================================ -->
+<!-- BLOCO 3: CATEGORIAS / NICHOS -->
+<!-- Cole este bloco após o hero -->
+<!-- Cores por categoria para organização visual -->
+<!-- ============================================ -->
+
+<style>
+    .zap-categories {
+        padding: 5rem 1.5rem;
+        background: linear-gradient(180deg, #F9FAFB 0%, #FFFFFF 100%);
+    }
+
+    .zap-categories-container {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .zap-section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .zap-section-badge {
+        display: inline-block;
+        padding: 0.5rem 1.5rem;
+        background: linear-gradient(135deg, #DC2626, #2563EB);
+        color: white;
+        border-radius: 50px;
+        font-size: 0.875rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+    }
+
+    .zap-section-title {
+        font-size: 3rem;
+        font-weight: 900;
+        color: #1F2937;
+        margin-bottom: 1rem;
+    }
+
+    .zap-section-description {
+        font-size: 1.25rem;
+        color: #6B7280;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .zap-categories-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+    }
+
+    .zap-category-card {
+        background: white;
+        border-radius: 1.5rem;
+        padding: 2.5rem 2rem;
+        text-align: center;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        border: 2px solid transparent;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .zap-category-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: var(--category-color);
+        transform: scaleX(0);
+        transition: transform 0.4s ease;
+    }
+
+    .zap-category-card:hover::before {
+        transform: scaleX(1);
+    }
+
+    .zap-category-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        border-color: var(--category-color);
+    }
+
+    .zap-category-icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 1.5rem;
+        background: var(--category-bg);
+        border-radius: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5rem;
+        transition: all 0.3s ease;
+    }
+
+    .zap-category-card:hover .zap-category-icon {
+        transform: scale(1.1) rotate(5deg);
+    }
+
+    .zap-category-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #1F2937;
+        margin-bottom: 0.75rem;
+    }
+
+    .zap-category-description {
+        color: #6B7280;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+    }
+
+    .zap-category-count {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background: var(--category-bg);
+        color: var(--category-color);
+        border-radius: 50px;
+        font-size: 0.875rem;
+        font-weight: 600;
+    }
+
+    /* Cores específicas por categoria */
+    .category-eletronicos {
+        --category-color: #2563EB;
+        --category-bg: #EFF6FF;
+    }
+
+    .category-moda {
+        --category-color: #DB2777;
+        --category-bg: #FDF2F8;
+    }
+
+    .category-casa {
+        --category-color: #059669;
+        --category-bg: #ECFDF5;
+    }
+
+    .category-esportes {
+        --category-color: #DC2626;
+        --category-bg: #FEF2F2;
+    }
+
+    .category-beleza {
+        --category-color: #9333EA;
+        --category-bg: #FAF5FF;
+    }
+
+    .category-livros {
+        --category-color: #EA580C;
+        --category-bg: #FFF7ED;
+    }
+
+    @media (max-width: 768px) {
+        .zap-section-title {
+            font-size: 2rem;
+        }
+
+        .zap-categories-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<section class="zap-categories" id="categorias">
+    <div class="zap-categories-container">
+        <!-- Cabeçalho da Seção -->
+        <div class="zap-section-header">
+            <span class="zap-section-badge">Explore por Categoria</span>
+            <h2 class="zap-section-title">Escolha Seu Nicho</h2>
+            <p class="zap-section-description">
+                Navegue pelas categorias e encontre exatamente o que você procura
+            </p>
+        </div>
+
+        <!-- Grid de Categorias -->
+        <div class="zap-categories-grid">
+            <!-- Eletrônicos -->
+            <div class="zap-category-card category-eletronicos">
+                <div class="zap-category-icon">📱</div>
+                <h3 class="zap-category-title">Eletrônicos</h3>
+                <p class="zap-category-description">
+                    Smartphones, tablets, laptops e acessórios tecnológicos
+                </p>
+                <span class="zap-category-count">120+ produtos</span>
+            </div>
+
+            <!-- Moda -->
+            <div class="zap-category-card category-moda">
+                <div class="zap-category-icon">👗</div>
+                <h3 class="zap-category-title">Moda & Estilo</h3>
+                <p class="zap-category-description">
+                    Roupas, calçados e acessórios para todos os estilos
+                </p>
+                <span class="zap-category-count">200+ produtos</span>
+            </div>
+
+            <!-- Casa -->
+            <div class="zap-category-card category-casa">
+                <div class="zap-category-icon">🏠</div>
+                <h3 class="zap-category-title">Casa & Decoração</h3>
+                <p class="zap-category-description">
+                    Móveis, decoração e itens essenciais para seu lar
+                </p>
+                <span class="zap-category-count">150+ produtos</span>
+            </div>
+
+            <!-- Esportes -->
+            <div class="zap-category-card category-esportes">
+                <div class="zap-category-icon">⚽</div>
+                <h3 class="zap-category-title">Esportes & Fitness</h3>
+                <p class="zap-category-description">
+                    Equipamentos esportivos e produtos para vida saudável
+                </p>
+                <span class="zap-category-count">80+ produtos</span>
+            </div>
+
+            <!-- Beleza -->
+            <div class="zap-category-card category-beleza">
+                <div class="zap-category-icon">💄</div>
+                <h3 class="zap-category-title">Beleza & Cuidados</h3>
+                <p class="zap-category-description">
+                    Cosméticos, perfumes e produtos de cuidado pessoal
+                </p>
+                <span class="zap-category-count">100+ produtos</span>
+            </div>
+
+            <!-- Livros -->
+            <div class="zap-category-card category-livros">
+                <div class="zap-category-icon">📚</div>
+                <h3 class="zap-category-title">Livros & Cultura</h3>
+                <p class="zap-category-description">
+                    Literatura, educação e entretenimento cultural
+                </p>
+                <span class="zap-category-count">90+ produtos</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FIM DO BLOCO CATEGORIAS -->
+
+<!-- 
+INSTRUÇÕES PARA ADICIONAR MAIS CATEGORIAS:
+1. Copie um dos blocos .zap-category-card
+2. Mude o emoji no .zap-category-icon
+3. Altere o título, descrição e contagem
+4. Adicione uma nova classe de cor (ex: category-games)
+5. Defina as cores CSS:
+   .category-games {
+       --category-color: #sua-cor-principal;
+       --category-bg: #sua-cor-clara;
+   }
+-->
